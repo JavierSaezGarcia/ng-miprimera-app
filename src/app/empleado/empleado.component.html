@@ -1,5 +1,36 @@
-<p>Nombre del empleado: {{ nombre}}</p>
-<p>Apellido del empleado: {{ apellido }}</p>
+
+<p>Nombre del empleado: {{ getNombre()}}</p>
+<p>Apellido del empleado: {{ getApellido() }}</p>
 <p>Edad del empleado: {{ getEdad() }}</p>
 <p>Empresa del empleado: {{ empresa }}</p>
+<!--
+    <p>Empresa del empleado: {{ empresa.value }}</p>
+-->
 <p>Años en la empresa: {{ antiguedad < 15 ? "Novato" : "Veterano" }}</p>
+<!--
+    <label for="empresa">Introduce la empresa: </label>
+<input type="text" id="empresa" #empresa (keyup)="0" placeholder="Nombre empresa" [disabled]="disableInput">
+-->
+<label for="empresa">Introduce la empresa: </label>
+<input type="text" [(ngModel)]="empresa">
+<!--
+    <input type="text" (input)="cambiaEmpresa($event)">
+-->
+<br>
+<br>
+<!--
+    property binding corchetes y va del typescript al template []
+    event binding parentesis que va del template al typescript ()
+    banana in box [()] binding en dos direcciones con "banana in box" y directiva ngModel
+    sintaxis que nos facilita la vida y resume el codigo se le llama "sugar sintax" 
+-->
+<!--<input  type="button" value="dale" (click)="llamaEmpresa(empresa.value)">-->
+{{textoDeRegistro}}
+<br>
+<label for="registryYes">Registrado: </label>
+<!-- nombre de la propiedad entre corchetes en este caso la propiedad checked--> 
+<input type="radio" value = "si" name="nRegistro" id="registryYes" [checked]="usuRegistrado" (click)="setUsuarioRegistrado($event)">
+<br>
+<label for="registryNo">No registrado: </label>
+<input type="radio" value = "no" name="nRegistro" id="registryNo" (click)="setUsuarioRegistrado($event)">
+{{getRegistroUsuario()}}
