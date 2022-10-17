@@ -9,6 +9,7 @@ import { Component } from "@angular/core";
 
 // construimos la clase para que sea accesible desde fuera desde este archivo
 export class EmpleadosComponent{
+    insultoCliente = "Que te follen";
 
 
 }
